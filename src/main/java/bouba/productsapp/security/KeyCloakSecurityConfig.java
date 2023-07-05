@@ -31,6 +31,7 @@ public class KeyCloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
         // les droits d'accès ici on va les gérer.
         // il faut s'authentifier pour l'accès aux rsrces de products/**
         http.csrf().disable();
+        http.cors();
         http.authorizeRequests().antMatchers("/h2-console/**").permitAll();
         http.headers().frameOptions().disable();
         http.authorizeRequests().antMatchers("/api/products/**").authenticated();
